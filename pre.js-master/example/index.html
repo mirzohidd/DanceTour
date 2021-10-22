@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <script src="loader.js"></script>
+  <script>
+    load()
+      .css('style.css')
+      .js('jquery.js', function() { return window.jQuery; })
+      .then(function() {
+        console.log('jquery loaded');
+      })
+      .js('lol.js', function() { return window.lol; })
+      .then(function() {
+        console.log('lol loaded');
+      })
+      .on('progress',function(e) {
+        console.log('loaded %s (%s/%s, %s%%)', e.uri, e.completed, e.total, e.percent * 100);
+      })
+      .on('retry',function(e) {
+        console.log('failed to load %s, retrying', e.uri);
+      })
+      .run();
+  </script>
+</head>
+<body>
+  hello!
+</body>
+</html>

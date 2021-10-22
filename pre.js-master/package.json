@@ -1,0 +1,30 @@
+{
+  "name": "pre-js",
+  "version": "0.1.2",
+  "description": "resilient, efficient resource loader",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "coffee-script": "~1.7.1",
+    "jscoverage": "0.3.8",
+    "jsdom": "~0.10.4",
+    "mdextract": "^1.0.0",
+    "mocha": "~1.17.1",
+    "sinon": "~1.8.2",
+    "uglify-js": "^2.4.15"
+  },
+  "scripts": {
+    "test": "mocha",
+    "coverage": "(cp index.js index.js~; jscoverage index.js; mv index-cov.js index.js; mocha -R html-cov > coverage.html); mv index.js~ index.js",
+    "prepublish": "make && mocha"
+  },
+  "author": "Rico Sta. Cruz <hi@ricostacruz.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rstacruz/pre.js.git"
+  }
+}
